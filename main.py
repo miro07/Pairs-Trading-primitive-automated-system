@@ -41,7 +41,7 @@ while True:
   else:
        long_price=df['trade.long'].at[-1]
        short_price=df['trade.short'].at[-1]
-       trade.get_loss
+       trade.get_loss()
        trade.get_Positionsize()
        if zscore < 0.1 and zscore > -0.1:
           trade.close_position()
