@@ -22,7 +22,7 @@ class Trade(object):
         self.loss=0
     def get_loss(self,long_price,short_price):
         self.loss=self.long_entry-long_price+short_price-self.short_entry 
-        return pl
+        return self.loss
     def get_Margininfo(self):
         Url='{}/trading/get_model/?models=Account'.format(Trade.myUrl_base)
         head = {'User-Agent': 'request','Accept': 'application/json','Content-Type': 'application/x-www-form-urlencoded','Authorization': Trade.bearer_access_token }
