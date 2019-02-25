@@ -34,7 +34,7 @@ while True:
             tradetype='long'
             trade.open_position(pair1,pair2,tradetype,df)
             if trade.openedPosition :
-               trade.pairs='pair2' '&' 'pair1'
+               trade_pairs=pair2+'&'+pair1
   
         
   else:
