@@ -72,11 +72,9 @@ class Trade(object):
            Url='https://api-demo.fxcm.com:443/trading/open_trade'
            head = {'User-Agent': 'request','Accept': 'application/json','Content-Type': 'application/x-www-form-urlencoded','Authorization': Trade.bearer_access_token }
            buy_reponse=requests.get(Url,headers=head,params={"account_id":self.accountId,"symbol":pair1,"is_buy":'true',"rate":0,"amount":str(self.longsize),"at_market":0,"order_type":"AtMarket","time_in_force":"FOK"})
-           print(buy_reponse)
            if buy_reponse.status_code==200:
               buy_json=buy_reponse.json()
               self.longorderid=buy_json[1]["orderId"]
-              print(self.longorderid)              
               self.long='pair1'
               self.long_entry=df['pair1'].iat[-1]
               Url='https://api-demo.fxcm.com:443/trading/open_trade'
@@ -102,7 +100,7 @@ class Trade(object):
                         self.longorderid=0
                         self.long=''
                         self.long_entry=0
-                        print ('The trade order was not executed',buy_reponse,sell_reponse)
+                        print ('The trade order was not executed',[buy_reponse,sell_reponse])
         elif tradetype=='long':
            Url='https://api-demo.fxcm.com:443/trading/open_trade'
            head = {'User-Agent': 'request','Accept': 'application/json','Content-Type': 'application/x-www-form-urlencoded','Authorization': Trade.bearer_access_token }
@@ -134,7 +132,7 @@ class Trade(object):
                          self.longorderid=0
                          self.long=''
                          self.long_entry=0
-                         print ('The trade order was not executed',buy_reponse,sell_reponse)
+                         print ('The trade order was not executed',[buy_reponse,sell_reponse])
     def close_position(self):
           while self.long != '' :
                 Url='https://api-demo.fxcm.com:443/trading/close_trade'
@@ -162,7 +160,7 @@ class Trade(object):
                    file.close()
                    print ('The order was closed')
                 else:
-                   print ('The trade order was not closed',Cbuy_reponse,Csell_reponse)
+                   print ('The trade order was not closed',[Cbuy_reponse,Csell_reponse])
         
         
    
