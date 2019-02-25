@@ -26,7 +26,7 @@ while True:
             tradetype='short'
             trade.open_position(pair1,pair2,tradetype,df)
             if trade.openedPosition :
-               trade_pairs='pair2' '&' 'pair1'
+               trade_pairs=pair2+'&'+pair1
                
              
       if zscore <= -2 :
@@ -38,8 +38,8 @@ while True:
   
         
   else:
-       long_price=df['trade.long'].at[-1]
-       short_price=df['trade.short'].at[-1]
+       long_price=df[trade.long].at[-1]
+       short_price=df[trade.short].at[-1]
        trade.get_loss()
        if zscore < 0.1 and zscore > -0.1:
           trade.close_position()
