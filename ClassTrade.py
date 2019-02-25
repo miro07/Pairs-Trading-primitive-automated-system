@@ -66,6 +66,7 @@ class Trade(object):
         else:
             return False
     def open_position(self,pair1,pair2,tradetype,df):
+        self.get_Positionsize()
         self.get_accountId()
         if tradetype=='short':
            Url='https://api-demo.fxcm.com:443/trading/open_trade'

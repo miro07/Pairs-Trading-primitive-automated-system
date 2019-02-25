@@ -21,7 +21,6 @@ while True:
   spread=pt.Spread_KalmanFilterRegression(df,pair1,pair2)
   zscore=pt.zscore(spread)['{}_{}'.format(pair1,pair2)].iat[-1]
   if not trade.openedPosition:
-      trade.get_Positionsize()
       if zscore >= 2 :
         if trade.check_Margin(pair1,pair2,symbols):
             tradetype='short'
@@ -42,7 +41,6 @@ while True:
        long_price=df['trade.long'].at[-1]
        short_price=df['trade.short'].at[-1]
        trade.get_loss()
-       trade.get_Positionsize()
        if zscore < 0.1 and zscore > -0.1:
           trade.close_position()
           if not trade.openedPosition:
