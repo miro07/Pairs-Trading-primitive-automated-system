@@ -61,7 +61,7 @@ class Trade(object):
         Margin1=offer_json['offers'][pair1_id]['mmr']
         Margin2=offer_json['offers'][pair2_id]['mmr']
         Margintotal=Margin1+Margin2
-        if (self.longsize+self.shortsize)*100*Margintotal < self.usableMargin*0.05:
+        if (self.longsize+self.shortsize)*100*Margintotal < self.usableMargin*0.5:
             return True
         else:
             return False
