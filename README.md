@@ -4,4 +4,14 @@ I hope that reading this Source Code will be as useful for you as building it wa
 
 
 mean2:here you can find an implementation using the fxcm class.
+
+
+
+
+
+
+
+
+
+
 mean: here you can find an implementation using my manually built class (ClassTrade).you may have some problems with it because of multi requests, but i am continually working to fix all problems and improve its performance.
