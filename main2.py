@@ -5,7 +5,7 @@ import fxcmpy
 
 myUrl_base = 'https://api-demo.fxcm.com:443'
 TOKEN = ''
-bearer_access_token=pt.get_bearer(myUrl_base)
+bearer_access_token=pt.get_bearer(myUrl_base,TOKEN)
 con = fxcmpy.fxcmpy(access_token=TOKEN, log_level='error')
 def get_Positionsize(Account,risk_rate):
     Balance=Account.loc[Account.index[2],0]
