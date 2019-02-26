@@ -14,4 +14,4 @@ main2:here you can find an implementation using the fxcm class,just get a token 
 
 
 
-main: here you can find an implementation using my manually built class (ClassTrade).you may have some problems with it because of multi requests, but i am continually working to fix all problems and improve its performance.
+main: here you can find an implementation using my manually built class (ClassTrade).
