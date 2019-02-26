@@ -14,7 +14,7 @@ def connect():
 def close():
     print('websocket colsed')
 def get_bearer(myUrl_base):  
- mytoken=''
+ mytoken='c2340cde1dbf571ab43d235cfa7b0f940ed6b429'
  websocket_port=443
  socketIO=SocketIO(myUrl_base,websocket_port,params={'access_token':'{}'.format(mytoken)})
  socketIO.on('connect',connect)
@@ -42,7 +42,7 @@ def prepare_data(df,symbols,bearer_access_token,myUrl_base):
          candles_data.columns=["time","bidopen","bidclose","bidhigh","bidlow","askopen","askclose","askhigh","asklow","tickQ"]
          for count,tm in enumerate(candles_data['time']):
               candles_data.at[count,'time']=dt.datetime.fromtimestamp(tm)
-              mid=(candles_data.at[count,"bidclose"]+candles_data.at[count,"bidclose"])/2
+              mid=(candles_data.at[count,"bidclose"]+candles_data.at[count,"askclose"])/2
               midprice.append(mid)
          candles_data['time']=pd.to_datetime(candles_data['time']).dt.floor('d')
          if 'Time' not in df:
@@ -62,6 +62,7 @@ def coint_test(df,symbols):
             if p1!= p2:
                 #search for the small p-value with an F-static less than critical value.
                 coint_res=coint(df[p1],df[p2])
+                print(coint_res)
                 #F-value=coint_res[0]
                 #critical_value=coint_res[2][1]
                 if coint_res[1] < min_coint_pvalue and  coint_res[0] < coint_res[2][1] :
