@@ -3,7 +3,7 @@ This is a first application to what i have been learning in this field trough bo
 I hope that reading this Source Code will be as useful for you as building it was for me.
 
 
-mean2:here you can find an implementation using the fxcm class.
+mean2:here you can find an implementation using the fxcm class,just get a token key from FXCM and run it. 
 
 
 
