@@ -47,8 +47,8 @@ class Trade(object):
     def get_Positionsize(self):
         self.get_Balance()
         account_risk=self.Balance*0.02
-        self.longsize=round(account_risk/(30*10))
-        self.shortsize=round(account_risk/(30*10))
+        self.longsize=round(account_risk/(30*10),2)
+        self.shortsize=round(account_risk/(30*10),2)
         return (self.longsize,self.shortsize)
     def check_Margin(self,pair1,pair2,symbols):
         self.get_Margininfo()
