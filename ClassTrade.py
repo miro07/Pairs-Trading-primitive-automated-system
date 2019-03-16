@@ -72,7 +72,7 @@ class Trade(object):
            Url='https://api-demo.fxcm.com:443/trading/open_trade'
            head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                    'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-           buy_reponse=requests.get(Url,headers=head,params={"account_id":self.accountId,
+           buy_reponse=requests.post(Url,headers=head,data={"account_id":self.accountId,
                                                              "symbol":pair1,"is_buy":True,
                                                              "rate":0,"amount":str(self.longsize),
                                                              "at_market":0,"order_type":"AtMarket","time_in_force":"FOK"})
@@ -84,7 +84,8 @@ class Trade(object):
               Url='https://api-demo.fxcm.com:443/trading/open_trade'
               head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                    'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-              sell_reponse=requests.get(Url,headers=head,params={"account_id":self.accountId,
+
+              sell_reponse=requests.post(Url,headers=head, data={"account_id":self.accountId,
                                                                  "symbol":pair2,"is_buy":False,
                                                                  "rate":0,"amount":str(self.shortsize),
                                                                  "at_market":0,"order_type":"AtMarket","time_in_force":"FOK"})
@@ -104,7 +105,7 @@ class Trade(object):
                         Url='https://api-demo.fxcm.com:443/trading/close_trade'
                         head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                                 'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-                        Cbuy_reponse=requests.get(Url,headers=head,params={"trade_id": self.longorderid ,
+                        Cbuy_reponse=requests.post(Url,headers=head,data={"trade_id": self.longorderid ,
                                                                            "rate": 0,"amount": str(self.longsize),
                                                                            "at_market": 0,"order_type": "AtMarket",
                                                                            "time_in_force": "FOK"})
@@ -117,7 +118,7 @@ class Trade(object):
            Url='https://api-demo.fxcm.com:443/trading/open_trade'
            head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                    'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-           buy_reponse=requests.get(Url,headers=head,params={"account_id":self.accountId,"symbol":pair2,
+           buy_reponse=requests.post(Url,headers=head,data={"account_id":self.accountId,"symbol":pair2,
                                                              "is_buy": True,"rate":0,"amount":str(self.longsize),
                                                              "at_market":0,"order_type":"AtMarket","time_in_force": "FOK"})
            if buy_reponse.status_code==200:
@@ -128,7 +129,7 @@ class Trade(object):
               Url='https://api-demo.fxcm.com:443/trading/open_trade'
               head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                    'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-              sell_reponse=requests.get(Url,headers=head,params={"account_id":self.accountId,
+              sell_reponse=requests.post(Url,headers=head,data={"account_id":self.accountId,
                                                                  "symbol": pair1,"is_buy": False,
                                                                  "rate": 0,"amount":str(self.shortsize),
                                                                  "at_market":0,"order_type":"AtMarket","time_in_force": "FOK"})
@@ -147,7 +148,7 @@ class Trade(object):
                       Url='https://api-demo.fxcm.com:443/trading/close_trade'
                       head = {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive',
                    'Authorization':Trade.bearer_access_token , 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '134'}
-                      Cbuy_reponse=requests.get(Url,headers=head,params={"trade_id":self.longorderid ,
+                      Cbuy_reponse=requests.post(Url,headers=head,data={"trade_id":self.longorderid ,
                                                                          "rate":0,"amount":str(self.longsize),
                                                                          "at_market":0,"order_type": "AtMarket",
                                                                          "time_in_force": "FOK"})
@@ -160,7 +161,7 @@ class Trade(object):
           while self.long != '' :
                 Url='https://api-demo.fxcm.com:443/trading/close_trade'
                 head = {'User-Agent': 'request','Accept': 'application/json','Content-Type': 'application/x-www-form-urlencoded','Authorization': Trade.bearer_access_token }
-                Cbuy_reponse=requests.get(Url,headers=head,params={"trade_id":self.longorderid ,
+                Cbuy_reponse=requests.post(Url,headers=head,data={"trade_id":self.longorderid ,
                                                                    "rate":0,"amount":str(self.longsize),
                                                                    "at_market":0,"order_type": "AtMarket",
                                                                    "time_in_force": "FOK"})
@@ -172,7 +173,7 @@ class Trade(object):
           while self.short != '':
                 Url='https://api-demo.fxcm.com:443/trading/close_trade'
                 head = {'User-Agent': 'request','Accept': 'application/json','Content-Type': 'application/x-www-form-urlencoded','Authorization': Trade.bearer_access_token }
-                Csell_reponse=requests.get(Url,headers=head,params={"trade_id":self.shortorderid ,
+                Csell_reponse=requests.post(Url,headers=head,data={"trade_id":self.shortorderid ,
                                                                     "rate":0,"amount":str(self.longsize),
                                                                     "at_market":0,"order_type": "AtMarket",
                                                                     "time_in_force": "FOK"})
